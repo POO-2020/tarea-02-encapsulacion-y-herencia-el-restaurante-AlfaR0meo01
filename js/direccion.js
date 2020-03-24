@@ -2,20 +2,20 @@
 
 export default class Direccion{
     constructor(calle, num_exterior, num_interior, colonia, codigo_postal, ciudad, municipio){
-        this.calle = calle;
-        this.num_exterior = num_exterior;
-        this.num_interior = num_interior;
-        this.colonia = colonia;
-        this.codigo_postal = codigo_postal;
-        this.ciudad = ciudad;
-        this.municipio = municipio;
+        this._calle = calle;
+        this._num_exterior = num_exterior;
+        this._num_interior = num_interior;
+        this._colonia = colonia;
+        this._codigo_postal = codigo_postal;
+        this._ciudad = ciudad;
+        this._municipio = municipio;
         
     }
     getFormatoCorto(){
-        return `Direccion: ${this.calle}, numero: ${this.num_exterior},`;
+        return `Direccion: ${this._calle}, numero: ${this._num_exterior},`;
     }
     getFormatLargo(){
-        return `Direccion: ${this.calle}, numero exterior: ${this.num_exterior}, numero interior: ${this.num_interior},
-         colonia: ${this.colonia}, CP: ${this.codigo_postal}, ciudad: ${this.ciudad}, municipio: ${this.municipio}`;
+        return `Direccion: ${this._calle}, numero exterior: ${this._num_exterior}, numero interior: ${this._num_interior},
+         colonia: ${this._colonia}, CP: ${this._codigo_postal}, ciudad: ${this._ciudad}, municipio: ${this._municipio}`;
     }
 }

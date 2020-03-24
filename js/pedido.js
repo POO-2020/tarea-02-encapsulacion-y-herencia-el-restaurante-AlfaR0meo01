@@ -1,43 +1,37 @@
 'use strict';
-/*import Fecha from './fecha.js';
-import Time from './time.js';*/
 import Price from './price.js';
-/*import Product from './producto.js';
-import Cliente from './cliente.js';
-import Direccion from './direccion.js';
-import elementPedido from './elementpedido.js'*/
 export default class Pedidos{
     constructor(fecha, hora, cliente){
-        this.fecha = fecha;
-        this.hora = hora;
-        this.cliente = cliente;
-        this.elementpedido = [];
+        this._fecha = fecha;
+        this._hora = hora;
+        this._cliente = cliente;
+        this._elementpedido = [];
     }
     getNumElementos(){
-        return `${this.elementpedido.length}`;
+        return `${this._elementpedido.length}`;
     }
     getResumen(){
-        return `${this.fecha.getFecha()}  ${this.hora.getFormato12()} ${this.getNumElementos()} elementos con ${this.getProductos()} productos total: ${this.getCostoTotal()}`;
+        return `${this._fecha.getFecha()}  ${this._hora.getFormato12()} ${this.getNumElementos()} elementos con ${this.getProductos()} productos total: ${this.getCostoTotal()}`;
     }
     getProductos(){
         var product = 0;
-        this.elementpedido.forEach(element => {
+        this._elementpedido.forEach(element => {
             product += element.cantidad
         });
         return product;
     }
     getCostoTotal(){
         var costo = 0;
-        this.elementpedido.forEach(elemento => {
+        this._elementpedido.forEach(elemento => {
             costo += parseFloat(elemento.cantidad) * parseFloat(elemento.producto.precio.precio);     
         });
         return new Price(costo.toFixed(2)).getPrice();
     }
     agregarElementos(elemento){
-        return this.elementpedido.push(elemento);
+        return this._elementpedido.push(elemento);
     }
     listarElemetos(){
-        this.elementpedido.forEach(elemento => {
+        this._elementpedido.forEach(elemento => {
             console.log(elemento.getDescripcion());
                
         });
@@ -45,20 +39,3 @@ export default class Pedidos{
 }
 /*var hola = new Pedidos(new Fecha(11,2,2006),new Time(11,56));
 hola.listarElemetos();*/
-
-
-addHuesped(huesped){
-this.huespedes.push(huesped);
-}
-getNumHuesped(){
-return (this.huespedes.length);
-}
-print(){
-var listaHuesped= "";
-this.huespedes.forEach(huesped=>{
-    return listaHuesped +="\n"+huesped.getDescripcion();
-})
-console.log(listaHuesped);
-console.log(`Habitacion: ${this.numeroHabitacion}\n${this.noches} noches reservadas\nFecha de llegada: ${this.getFechaFormatoCorto()}${listaHuesped}`);
-}
-}

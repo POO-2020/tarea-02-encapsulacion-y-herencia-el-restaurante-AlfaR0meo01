@@ -1,10 +1,10 @@
 'use strict';
 export default class elementPedido{
     constructor(producto, cantidad){
-        this.producto = producto;
-        this.cantidad = cantidad;     
+        this._producto = producto;
+        this._cantidad = cantidad;     
     }
     getDescripcion(){
-        return `${this.producto.getDescription()}, cantidad: ${this.cantidad}`;
+        return `${this._producto.getDescription()}, cantidad: ${this._cantidad}`;
     }
 }

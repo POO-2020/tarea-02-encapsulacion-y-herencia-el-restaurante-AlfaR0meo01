@@ -1,19 +1,19 @@
 "use strict";
 export default class Time {
     constructor(hora, minutos) {
-        this.hora = hora;
-        this.minutos = minutos;
-        this.ampm = this.hora >= 12 ? 'pm' : 'am';
+        this._hora = hora;
+        this._minutos = minutos;
+        this_.ampm = this._hora >= 12 ? 'pm' : 'am';
     }
     
     getFormato12() {
-        this.hora = this.hora % 12;
-        this.hora = this.hora ? this.hora : 12;
-        return ` ${this.hora}:${this.minutos} ${this.ampm}`;
+        this._hora = this._hora % 12;
+        this._hora = this._hora ? this._hora : 12;
+        return ` ${this._hora}:${this._minutos} ${this._ampm}`;
     }
 
     getFormato24() {
-        return `${this.hora}:${this.minutos} ${this.ampm} `;
+        return `${this._hora}:${this._minutos} ${this._ampm} `;
     }
 }
 

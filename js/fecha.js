@@ -1,12 +1,12 @@
 "use strict";
 export default class Fecha {
     constructor(dia, mes, ano) {
-        this.fecha = new Date(ano,mes,dia);
-        this.diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
-        this.meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        this._fecha = new Date(ano,mes,dia);
+        this._diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+        this._meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     }
     getMscos() {
-        return new Date() - this.fecha;
+        return new Date() - this._fecha;
     }
 
     getAno = _ => Math.trunc(this.getMscos() / (31536000000)).toString()+ ' años';
@@ -18,10 +18,10 @@ export default class Fecha {
     getDias = _ => Math.trunc(this.getMscos() / (86400000)).toString()+ ' semanas';
 
     getFecha() {
-        return `${this.fecha.getDate()}/${this.fecha.getMonth() + 1}/${this.fecha.getFullYear()}`;
+        return `${this._fecha.getDate()}/${this._fecha.getMonth() + 1}/${this._fecha.getFullYear()}`;
     }
     getDiaFecha() {
-        return this.diasSemana[this.fecha.getDay()];
+        return this._diasSemana[this._fecha.getDay()];
     }
 }
 

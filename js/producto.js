@@ -2,11 +2,11 @@
 
 export default class Product{
     constructor(nombre, precio){
-        this.nombre = nombre;
-        this.precio = precio;//new Price(precio);     
+        this._nombre = nombre;
+        this._precio = precio;//new Price(precio);     
     }
     getDescription(){
-        return `${this.nombre} , ${this.precio.getPrice()}`;      
+        return `${this._nombre} , ${this._precio.getPrice()}`;      
     }
 }
 
