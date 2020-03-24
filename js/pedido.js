@@ -1,5 +1,6 @@
 'use strict';
 import Price from './price.js';
+import Fecha from "./fecha.js";
 export default class Pedidos{
     constructor(fecha, hora, cliente){
         this._fecha = fecha;
@@ -23,7 +24,9 @@ export default class Pedidos{
     getCostoTotal(){
         var costo = 0;
         this._elementpedido.forEach(elemento => {
-            costo += parseFloat(elemento.cantidad) * parseFloat(elemento.producto.precio.precio);     
+            console.log(costo += parseFloat(elemento.cantidad) * parseFloat(elemento.producto.price.precio));
+            
+            costo += parseFloat(elemento.cantidad) * parseFloat(elemento.producto.price);     
         });
         return new Price(costo.toFixed(2)).getPrice();
     }

@@ -3,7 +3,7 @@ export default class Time {
     constructor(hora, minutos) {
         this._hora = hora;
         this._minutos = minutos;
-        this_.ampm = this._hora >= 12 ? 'pm' : 'am';
+        this._ampm = this._hora >= 12 ? 'pm' : 'am';
     }
     
     getFormato12() {
