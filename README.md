@@ -1,77 +1,72 @@
-# Encapsulación y Herencia
+# Conceptos básicos de la POO
 
-<img src="img/restaurante.jpg" width="800">
+<img src="img/restaurante.jpg" width="700">
 
 ## El Restaurante
 
 Se requiere desarrollar un sistema web que permita administrar los pedidos de un restaurante. Para este sistema se ha diseñado la siguiente arquitectura la cual deberás implementar utilizando JavaScript
 
-<img src="img/diagrama-uml.png" width="800">
+<img src="img/diagrama-uml.png" width="700">
 
 ## Descripción de clases
 La mayoría de los detalles de las clases para su implementación se pueden obtener del diagrama UML. Sin embargo a continuación se presentan algunas precisiones para algunos métodos o atributos de las clases.
 
-## Requisitos
+### La clase Fecha
 
-- Todas las clases deberán estár encapsuladas
-- Sólo se proveerán los métodos de acceso (lectura y/o escritura) que se requieran
-
-Esta tarea es continuación de la tarea 01 Conceptos básicos, por lo que se puede utilizar ese código como base y realizar los ajustes necesarios para que se cumpla con los nuevos requerimientos.
-
-## La clase Fecha
-
-- Debe estar encapsulada
+- Métodos
+  - getAños(). Regresa el número de años desde la fecha indicada hasta el día de hoy. El resultado debe ser un valor entero, sin decimales.
+  - getMeses(). Regresa el número de meses que hay desde la fecha indicada hasta el día de hoy. El resultado debe ser un valor entero, sin decimales.
+  - getSemanas() Regresa el número de semanas que hay desde la fecha indicada hasta el día de hoy. El resultado debe ser un valor entero, sin decimales.
+  - getDias() Regresa el número de días que hay desde la fecha indicada hasta el día de hoy. El resultado debe ser un valor entero, sin decimales.
+  - getFecha() Regresa la fecha indicada en el siguiente formato 1/Feb/2020
+  - getDiaFecha() Regresa el día de la semana en el que cae la fecha indicada, por ejemplo, Lunes, Martes, etc.
 
 ## La clase Tiempo
 
-- Debe estar encapsulada
+- Atributos
+  - periodo. Se refiere a el periodo del día AM ó PM
+- Métodos
+  - getFormato12(). Regresa la hora especificada en el formato de 12 horas, por ejemplo 1:24 pm ó 4:55 am
+  - getFormato24(). Regresa la hora especificada en el formato de 24 horas, por ejemplo 13:24 ó 17:32
 
 ## La clase Direccion
 
-- Debe estar encapsulada
+- Atributos
+  - numeroInterior. El numero interior del domicilio, este atributo es opcional, es decir no siempre se utiliza.
+
+- Métodos
+  - getFormatoCorto(). Regresa la dirección indicada pero solo con la calle y el número exterior, por evemplo Av. Revolución 123
+  - getFormatoExtendido() Regresa la dirección indicada pero incluyendo todos los datos
 
 ## La clase Precio
 
-- Debe estar encapsulada
-
+- Métodos
+  - getPrecio(). Regresa el valor formateado como se muestra en los siguientes ejemplos: $127.00, $127.45, $1,127.00, $34,127.45
+  - 
 ## La clase Producto
 
-- Debe estar encapsulada
+- Métodos
+  - getDescripcion(). Regresa los datos del producto en el siguiente formato. Pizza mexicana grande $200.00
 
 ## La clase ElementoPedido
 
-- Debe estar encapsulada
+- Métodos
+  - getDescripción(). Regresa los datos del elemento pedido en el siguiente formato: 2 x Pizza mexicana grande $400.00
 
 ## La clase Pedido
 
-- Debe estar encapsulada
-- El constructor debe recibir los parámetros mediante un objeto
-  
-- Atributos
-  - numeroPedido. El número que identifica al pedido
-  
+- Métodos
+  - getResumen(). Regresa un resumen del pedido en el siguiente formato: 5/Feb/2020 5:20 pm - 3 elementos con 5 productos -  total: $1,453.00
+  - getNumeroElementos(). Regresa el número de elementos que contiene el pedido
+  - getProductos(). Regresa el número de productos que contiene el pedido
+  - getCostoTotal(). Regresa el costo total del pedido
+  - agregarElemento(). Agrega un elemento al pedido
+  - listarElementos(). Imprime un listado de todos los elementos que contiene el pedido
+
 ## La clase Restaurante
 
-- Debe estar encapsulada
-- El constructor debe recibir los parámetros mediante un objeto
-  
 - Métodos
-  - registrarPedido(Pedido). Registra un nuevo Pedido, pero debe asegurarse que el Pedido no esté registrado previamente, es decir un Pedido no puede registrarse dos veces. Si el Pedido se registra de manera exitosa, entonces el método regresará el valor true. Si no se pudo registrar, regresará false. Para determinar si un Pedido ya está registrado se debe revisar el número de pedido.
-  - buscarPedido(Pedido). Busca un Pedido registrado en el Restaurante, si encuentra al Pedido el método regresa el objeto del Pedido encontrado. Si no lo encuentra el método regresará null.
-  - eliminarPedido(Pedido). Busca el Pedido en el registro del Restaurante y si lo elimina el método regresa true, si no lo elimina por que no lo encontró, regresa false.
-  - actualizarPedido(Pedido). Actualiza el registro de un Pedido, si la actualización se realiza de manera exitosa, el método regresa true, si no se pudo realizar, el método regresa false.
-
-## La clase ClienteFrecuente
-
-Esta clase es una especialización (Hereda) de la clase Cliente
-
-- Debe estar encapsulada
-- El constructor debe recibir los parámetros mediante un objeto
-
-- Atributos
-  - numeroCliente(number). El número de registro del cliente
-  - fechaRegistro(Fecha). La fecha en la que se registró el cliente
-
-- Métodos
-  - getPerfil(). Regresa un string con el número de cliente, fecha de registro, nombre, dirección y teléfono. Por ejemplo:
-    - 1234, 5/May/2000, Juan Perez Díaz, Av, Universidad 333, 3123161075
+  - registrarProducto(). Agrega un nuevo producto
+  - listarProductos(). Imprime un listado de los productos 
+  - registrarPedido(). Agrega un nuevo pedido 
+  - listarPedidos(). Imprime un listado de todos los pedidos (resúmen)
